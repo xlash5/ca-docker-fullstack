@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  client:
+    image: my-client
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - webappnetwork
+  api:
+    image: my-api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+    networks:
+      - webappnetwork
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --noauth
+    networks:
+      - webappnetwork
+networks:
+  webappnetwork:
+    driver: bridge

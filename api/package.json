@@ -1,0 +1,15 @@
+{
+    "name": "docker_node",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "author": "Muhammet Enes ilhan",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.16.1",
+        "mongodb": "^4.4.0"
+    }
+}
